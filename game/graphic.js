@@ -35,6 +35,7 @@ function init()
 function Ground(color, size_x, size_y, nb_tile)
 {
     colors = Array(0xff0000, 0x00ff00, 0x0000ff, 0x000000);
+    // colors = Array(0xff0000, 0x00ff00, 0x0000ff);
 
     sizeOfTileX = size_x / nb_tile;
     minX = -(size_x/2);
@@ -48,7 +49,10 @@ function Ground(color, size_x, size_y, nb_tile)
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
 
             color = colors[Math.floor(Math.random()*colors.length)];
-       
+            in_the_middle = (x == 0) && (y == 0);
+            if (in_the_middle) {    // add blue tile if in the middle
+                color = 0x0000ff;
+            }
             if (0x000000 != color)
             {
                 tmpGround = new THREE.Mesh(
