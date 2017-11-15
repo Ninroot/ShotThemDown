@@ -6,21 +6,13 @@
 
         body {
             background: #000000; 
+            color:white;
         }
 
         #container {
             margin : auto; 
             border: 1px solid white;
             background: #000000;
-        }
-        
-        #player1 {
-                margin : auto; 
-                text-align: center;
-        }
-
-        .life {
-            color:white;
         }
 
     </style>
@@ -30,8 +22,11 @@
 <body>
     <div id="container"></div>
     <div id="player1">
-        <strong>Joueur 1</strong>
-        <span class="life">3</span> vies
+        player1 (X:<span class="x">0</span> Y:<span class="y">0</span>) : <span class="life">3</span> vies
+    </div>
+
+    <div id="enemy1">
+        enemy1 (X:<span class="x">0</span> Y:<span class="y">0</span>) : <span class="life">3</span> vies
     </div>
 </body>
 

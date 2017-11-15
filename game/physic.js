@@ -23,6 +23,7 @@ function update()
         enemy1.decelerate(moveDistance);
 
     player1.move();
+    player1.displayInfo();
     enemy1.move();
     controls.update();
 }

@@ -36,10 +36,7 @@ var Enemy = function(name, color, position, direction) {
     
     Enemy.prototype.dead = function () {
         this.graphic.position.z = this.graphic.position.z-0.1;
-            //Nettoyage de la div container
-            $("#container").html("");
-            jQuery('#'+this.name+' >.life').text("Tu es mort !");
-            init();
+            jQuery('#'+this.name+' >.life').text( this.name + 'est mort');
     }
     
     Enemy.prototype.decelerate = function (distance) {
@@ -53,6 +50,8 @@ var Enemy = function(name, color, position, direction) {
     
     Enemy.prototype.displayInfo = function () {
         jQuery('#'+this.name+' >.life').text(this.life);
+        jQuery('#'+this.name+' >.x').text(this.graphic.position.x);
+        jQuery('#'+this.name+' >.y').text(this.graphic.position.y);
     }
     
     Enemy.prototype.turnRight = function (angle) {

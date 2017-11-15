@@ -53,6 +53,8 @@ Player.prototype.decelerate = function (distance) {
 
 Player.prototype.displayInfo = function () {
     jQuery('#'+this.name+' >.life').text(this.life);
+    jQuery('#'+this.name+' >.x').text(this.graphic.position.x);
+    jQuery('#'+this.name+' >.y').text(this.graphic.position.y);
 }
 
 Player.prototype.turnRight = function (angle) {

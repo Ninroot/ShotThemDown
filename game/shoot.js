@@ -8,7 +8,7 @@ var bullet_player1_material = new THREE.MeshLambertMaterial(
 
 function shoot()
 {
-    if (keyboard.pressed("space") && bulletTime1 + 0.8 < clock.getElapsedTime())
+    if (keyboard.pressed("space") && bulletTime1 + 0.1 < clock.getElapsedTime())
     {
         bullet = new THREE.Mesh(
             new THREE.SphereGeometry(2),
@@ -51,8 +51,41 @@ function bullet_collision()
             player1.bullets.splice(i, 1);
             i--;
         }
+        if (Math.abs(player1.bullets[i].position.x) >= (enemy1.position.x - 5) &&
+        Math.abs(player1.bullets[i].position.x) <= (enemy1.position.x + 5) &&
+        Math.abs(player1.bullets[i].position.y) >= (enemy1.position.y - 5) &&
+        Math.abs(player1.bullets[i].position.y) <= (enemy1.position.y + 5))
+        {
+            console.log('pouet');
+            scene.remove(player1.bullets[i]);
+            player1.bullets.splice(i, 1);
+            enemy1.life--;
+            if (enemy1.life <= 0) {
+                enemy1.dead();
+                scene.remove(enemy1);
+            }
+            i--;
+            break;
+        }
+        else {
+            console.log('plouf');
+        }
     }
 
+    //collision between bullet and enemy
+    // for (var i = 0; i < player1.bullets.length; i++)
+    // {
+    //     if (Math.abs(player1.bullets[i].position.x) >= (enemy1.position.x - 10) ||
+    //         Math.abs(player1.bullets[i].position.x) <= (enemy1.position.x + 10) ||
+    //         Math.abs(player1.bullets[i].position.y) >= (enemy1.position.y - 10) ||
+    //         Math.abs(player1.bullets[i].position.y) <= (enemy1.position.y + 10))
+    //     {
+    //         scene.remove(player1.bullets[i]);
+    //         player1.bullets.splice(i, 1);
+    //         enemy1.life--;
+    //         i--;
+    //     }
+    // }
 }
 
 function player_collision()
