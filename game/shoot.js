@@ -51,10 +51,10 @@ function bullet_collision()
             player1.bullets.splice(i, 1);
             i--;
         }
-        if (Math.abs(player1.bullets[i].position.x) >= (enemy1.position.x - 5) &&
-        Math.abs(player1.bullets[i].position.x) <= (enemy1.position.x + 5) &&
-        Math.abs(player1.bullets[i].position.y) >= (enemy1.position.y - 5) &&
-        Math.abs(player1.bullets[i].position.y) <= (enemy1.position.y + 5))
+        if ((player1.bullets[i].position.x) >= (enemy1.graphic.position.x - 8) &&
+            (player1.bullets[i].position.x) <= (enemy1.graphic.position.x + 8) &&
+            (player1.bullets[i].position.y) >= (enemy1.graphic.position.y - 8) &&
+            (player1.bullets[i].position.y) <= (enemy1.graphic.position.y + 8))
         {
             console.log('pouet');
             scene.remove(player1.bullets[i]);
